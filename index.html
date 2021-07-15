@@ -71,6 +71,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Kubernetes-pitfalls" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/15/Kubernetes-pitfalls/" class="article-date">
+  <time class="dt-published" datetime="2021-07-15T09:37:48.000Z" itemprop="datePublished">2021-07-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/15/Kubernetes-pitfalls/">Kubernetes pitfalls</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Q： 从kuboard中移除集群，会造成kuboard这个ns资源一直处于Terminating状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1)  kubectl get namespace kuboard -o json &gt; kuboard.json</span><br><span class="line">2)  编辑kuboard.json ,  Remove kubernetes from the finalizers array</span><br><span class="line">3)  kubectl replace --raw &quot;&#x2F;api&#x2F;v1&#x2F;namespaces&#x2F;kuboard&#x2F;finalize&quot; -f kuboard.json</span><br></pre></td></tr></table></figure>
+
+<p>参考文：<br><a target="_blank" rel="noopener" href="https://craignewtondev.medium.com/how-to-fix-kubernetes-namespace-deleting-stuck-in-terminating-state-5ed75792647e">https://craignewtondev.medium.com/how-to-fix-kubernetes-namespace-deleting-stuck-in-terminating-state-5ed75792647e</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/15/Kubernetes-pitfalls/" data-id="ckr4pzlvg00004pd7d9ou69nn" data-title="Kubernetes pitfalls" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-resize-ubuntu-logic-volume" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/07/15/resize-ubuntu-logic-volume/" class="article-date">
@@ -189,6 +231,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/07/15/Kubernetes-pitfalls/">Kubernetes pitfalls</a>
+          </li>
         
           <li>
             <a href="/2021/07/15/resize-ubuntu-logic-volume/">resize ubuntu logic volume</a>
